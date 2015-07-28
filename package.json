@@ -3,7 +3,7 @@
   "description": "Tag auto suggest",
   "author": "Thomas Junghans <thomas.junghans@gmail.com>",
   "version": "0.0.0",
-  "main": "./lib/react-tag-suggest",
+  "main": "./lib/tag-suggest",
   "scripts": {
     "test:browser": "mochify",
     "watch:browser": "npm run test:browser -- --watch",
