@@ -1,0 +1,49 @@
+.tag-input {
+  font-family: Arial, Helvetica, sans-serif;
+  border: solid 1px #ccc;
+  box-sizing: border-box;
+  padding: 5px 4px 0;
+  position: relative;
+  .new-tag {
+    border: none;
+    font-size: 13px;
+    margin-bottom: 7px;
+    padding: 3px 2px;
+    outline: none;
+    width: auto;
+  }
+  .new-tag-size {
+    position: absolute;
+    left: -10000px;
+    font-size: 13px;
+    padding: 0 2px;
+  }
+  .pill {
+    display: inline-block;
+    margin: 0 5px 5px 0;
+    border-radius: 3px;
+    border: solid #1234ef 3px;
+    background-color: #1234ef;
+    color: #fff;
+    padding: 0px 3px;
+    font-size: 13px;
+    transition: background-color border-color 0.5s ease;
+    &.highlight {
+      background-color: #f1c40f;
+      border-color: #f1c40f;
+    }
+    .remove {
+      cursor: pointer;
+      vertical-align: middle;
+      padding: 0 0 0 5px;
+    }
+  }
+}
+
+#list {
+  font-family: Arial, Helvetica, sans-serif;
+  .highlight {
+    background-color: #27ae60;
+    color: #ecf0f1;
+  }
+}

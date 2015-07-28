@@ -1,0 +1,60 @@
+{
+  "name": "react-tag-suggest",
+  "description": "Tag auto suggest",
+  "author": "Thomas Junghans <thomas.junghans@gmail.com>",
+  "version": "0.0.0",
+  "main": "./lib/react-tag-suggest",
+  "scripts": {
+    "test:browser": "mochify",
+    "watch:browser": "npm run test:browser -- --watch",
+    "wd": "mochify --wd",
+    "lint": "jslint --edition=latest --color ./lib/*.js ./test/*.js ./public/main.js",
+    "pretest": "npm run lint",
+    "test": "npm run test:browser",
+    "build:js": "NODE_ENV=production browserify ./public/main.js | uglifyjs -cm > public/bundle.js",
+    "build:css": "stylus --compress ./css/main.styl --out ./public/style.css",
+    "build": "npm run build:js && npm run build:css",
+    "start": "ecstatic -p 8000 public",
+    "watch:js": "watchify ./public/main.js -o public/bundle.js -dv",
+    "watch:css": "stylus --line-numbers --watch ./css/main.styl --out ./public/style.css",
+    "watch": "npm run watch:js & npm run watch:css"
+  },
+  "dependencies": {
+    "browserify": "^10.2",
+    "ecstatic": "^0.8",
+    "react": "^0.13",
+    "stylus": "^0.52",
+    "uglify-js": "^2.4",
+    "watchify": "^3.2",
+    "react-simple-list": "^1.0",
+    "tag-input": "^1.3"
+  },
+  "devDependencies": {
+    "jslint": "^0.8",
+    "mochify": "^2.6",
+    "sinon": "^1.15"
+  },
+  "files": [
+    "css",
+    "lib",
+    "public",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tjunghans/react-tag-suggest"
+  },
+  "bugs": {
+    "url": "https://github.com/tjunghans/react-tag-suggest/issues"
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "tag",
+    "autosuggest",
+    "suggest"
+  ],
+  "licences": {
+    "type": "MIT"
+  }
+}
