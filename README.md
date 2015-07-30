@@ -45,7 +45,7 @@ npm start & npm run watch
 
 ```javascript
 var React = require('react');
-var tagSuggestComponent = require('../');
+var tagSuggestComponent = require('react-tag-suggest');
 
 // DEV START
 var items = ['Java', 'Java Flash', 'JavaScript', 'Html', 'Java Script',
