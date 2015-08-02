@@ -127,12 +127,24 @@ describe('component', function () {
       assertInputValue('java');
     });
 
-    it('selects suggestion on click', function () {
+    it('adds suggestion on click on value', function () {
       TestUtils.Simulate.change(input, { target: { value: 'jav' } });
 
-      TestUtils.Simulate.click($('ul li')[1]);
+      TestUtils.Simulate.click($('ul li a.suggestion')[1]);
 
       assert.equal($('ul', div).length, 0);
+      assert.equal($('.pill', div).length, 1);
+      assert.equal($('.pill .tag', div)[0].textContent, 'java jdk');
+      assertInputValue('');
+    });
+
+    it('uses suggestion as input on click on arrow', function () {
+      TestUtils.Simulate.change(input, { target: { value: 'jav' } });
+
+      TestUtils.Simulate.click($('ul li a.set-input')[1]);
+
+      assert.equal($('ul', div).length, 0);
+      assert.equal($('.pill', div).length, 0);
       assertInputValue('java jdk');
     });
 

@@ -27,7 +27,6 @@
     "stylus": "^0.52",
     "uglify-js": "^2.4",
     "watchify": "^3.2",
-    "request": "^2.60",
     "react-simple-list": "^2.0",
     "tag-input": "^2.0"
   },
