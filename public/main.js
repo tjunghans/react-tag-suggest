@@ -6,7 +6,8 @@ var tagSuggestComponent = require('../');
 // DEV START
 var items = ['Java', 'Java Flash', 'JavaScript', 'Html', 'Java Script',
   'css', 'photoshop', 'project management', 'sales', 'photography',
-  'football', 'dj', 'video editing', 'mac os x', 'Adobe Photoshop'];
+  'football', 'dj', 'video editing', 'mac os x', 'Adobe Photoshop', 'Testing',
+  'Flash', 'Sales Support', 'Hardware Support', 'Strategic planning'];
 
 function findSuggestions(query, callback) {
   // Some async action will happen here
