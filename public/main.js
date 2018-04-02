@@ -1,7 +1,6 @@
-'use strict';
-
-var React = require('react');
-var tagSuggestComponent = require('../');
+import React from "react";
+import { render } from "react-dom";
+import { TagSuggest } from "../lib/TagSuggest.jsx";
 
 // DEV START
 var items = ['Java', 'Java Flash', 'JavaScript', 'Html', 'Java Script',
@@ -17,7 +16,7 @@ function findSuggestions(query, callback) {
     return;
   }
 
-  res = items.filter(function (item) {
+  res = items.filter(item => {
     return item.toLowerCase().indexOf(query.toLowerCase().trim()) > -1;
   });
 
@@ -25,8 +24,13 @@ function findSuggestions(query, callback) {
 }
 // DEV END
 
-var tagInput = React.render(React.createElement(tagSuggestComponent, {
-  suggester: findSuggestions
-}),
+const elem = <TagSuggest 
+  suggester={findSuggestions}
+  onClick={() => console.log("click")}
+  onInputChange={() => console.log("inputChange")}
+  onTagChange={() => console.log("tag change")}
+  />;
+  
+render(elem, 
   document.querySelector('#content'));
 

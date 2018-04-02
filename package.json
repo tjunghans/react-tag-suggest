@@ -3,12 +3,26 @@
   "description": "Tag auto suggest",
   "author": "Thomas Junghans <thomas.junghans@gmail.com>",
   "version": "1.0.1",
-  "main": "./lib/tag-suggest",
+  "main": "./lib/TagSuggest.jsx",
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "env",
+            "react"
+          ]
+        }
+      ]
+    ]
+  },
   "scripts": {
-    "test:browser": "mochify",
+    "test:browser": "mochify ./test/**",
     "watch:browser": "npm run test:browser -- --watch",
-    "wd": "mochify --wd",
-    "lint": "jslint --edition=latest --color ./lib/*.js ./test/*.js ./public/main.js",
+    "wd": "npm run test:browser -- --wd",
+    "lint": "eslint --ext .jsx,.js ./lib/** ./test/**",
+    "fix": "npm run lint -- --fix",
     "pretest": "npm run lint",
     "test": "npm run test:browser",
     "build:js": "NODE_ENV=production browserify ./public/main.js | uglifyjs -cm > public/bundle.js",
@@ -19,21 +33,32 @@
     "watch:css": "stylus --line-numbers --watch ./css/main.styl --out ./public/style.css",
     "watch": "npm run watch:js & npm run watch:css"
   },
-  "dependencies": {
-    "bean": "^1.0",
-    "browserify": "^10.2",
-    "ecstatic": "^0.8",
-    "react": "^0.13",
-    "stylus": "^0.52",
-    "uglify-js": "^2.4",
-    "watchify": "^3.2",
-    "react-simple-list": "^2.0",
-    "tag-input": "^2.0"
-  },
   "devDependencies": {
-    "jslint": "^0.8",
-    "mochify": "^2.6",
-    "sinon": "^1.15"
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^8.0.0",
+    "bean": "^1.0",
+    "browserify": "^16.0",
+    "ecstatic": "^3.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mochify": "^4.0",
+    "prettier": "^1.11.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.0",
+    "react-dom": "^16.3.0",
+    "sinon": "^4.0",
+    "stylus": "^0.54.5",
+    "uglify-js": "^3.0",
+    "watchify": "^3.0"
   },
   "files": [
     "css",
@@ -55,7 +80,5 @@
     "autosuggest",
     "suggest"
   ],
-  "licences": {
-    "type": "MIT"
-  }
+  "licence": "MIT"
 }
